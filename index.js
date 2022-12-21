@@ -12,10 +12,10 @@ const corsOptions = {
   origin: "http://localhost:3000",
   optionsSuccessStatus: 200,
 };
-app.use('/images', express.static(path.join(__dirname, '../images')));
+// app.use('/images', express.static(path.join(__dirname, '../images')));
 app.use(cors());
 app.use(bodyParser.json());
-app.use(express.static(path.resolve(__dirname, "dist")));
+// app.use(express.static(path.resolve(__dirname, "dist")));
 app.use(history());
 // app.get("/api/products", async (req, res) => {
 //   MongoClient.connect(url,{
@@ -130,9 +130,6 @@ app.delete("/api/users/:userId/cart/:productId", async (req, res) => {
   );
   res.status(200).json(cartItems);
   client.close();
-});
-app.get("*", (req, res) => {
-  res.sendFile(path.join(__dirname, "dist/index.html"));
 });
 app.listen(port, () => {
   console.log(`Server running on port ${port}`);
