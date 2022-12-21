@@ -131,6 +131,5 @@ app.delete("/api/users/:userId/cart/:productId", async (req, res) => {
   res.status(200).json(cartItems);
   client.close();
 });
-app.listen(port, () => {
-  console.log(`Server running on port ${port}`);
-});
+
+module.exports = app;
