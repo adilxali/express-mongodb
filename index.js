@@ -3,19 +3,15 @@ const cors = require("cors");
 const bodyParser = require("body-parser");
 const path = require("path");
 const MongoClient = require("mongodb").MongoClient;
-const history = require("connect-history-api-fallback");
+// const history = require("connect-history-api-fallback");
 const app = express();
 const port = 3000;
 const url ="mongodb+srv://adilali:adil@vue-db.kvxpzco.mongodb.net/?retryWrites=true&w=majority";
-const corsOptions = {
-  origin: "http://localhost:3000",
-  optionsSuccessStatus: 200,
-};
 app.use('/images', express.static(path.join(__dirname, '../images')));
 app.use(cors());
 app.use(bodyParser.json());
-app.use(express.static(path.resolve(__dirname, "dist")));
-app.use(history());
+//app.use(express.static(path.resolve(__dirname, "dist")));
+//app.use(history());
 // app.get("/api/products", async (req, res) => {
 //   MongoClient.connect(url,{
 //     useNewUrlParser:true,
@@ -130,9 +126,9 @@ app.delete("/api/users/:userId/cart/:productId", async (req, res) => {
   res.status(200).json(cartItems);
   client.close();
 });
-app.get("*", (req, res) => {
-  res.sendFile(path.join(__dirname, "dist/index.html"));
-});
+// app.get("*", (req, res) => {
+//   res.sendFile(path.join(__dirname, "dist/index.html"));
+// });
 app.listen(port, () => {
   console.log(`Example app listening at http://localhost:${port}`);
 });
