@@ -7,7 +7,7 @@ const history = require("connect-history-api-fallback");
 const app = express();
 const port = 3000;
 const url =
-  "mongodb+srv://adil_ali:A@dil#7078@vue-db.dozkx80.mongodb.net/?retryWrites=true&w=majority";
+  "mongodb+srv://adilali:adil@vue-db.kvxpzco.mongodb.net/?retryWrites=true&w=majority";
 const corsOptions = {
   origin: "http://localhost:3000",
   optionsSuccessStatus: 200,
@@ -15,8 +15,6 @@ const corsOptions = {
 // app.use('/images', express.static(path.join(__dirname, '../images')));
 app.use(cors());
 app.use(bodyParser.json());
-// app.use(express.static(path.resolve(__dirname, "dist")));
-app.use(history());
 // app.get("/api/products", async (req, res) => {
 //   MongoClient.connect(url,{
 //     useNewUrlParser:true,
@@ -49,8 +47,10 @@ app.get("/api/products", async (req, res) => {
   const products = await collection.find({}).toArray();
   if (products) {
     res.status(200).json(products);
+    console.log("products");
   } else {
     res.status(404).json({ message: "Product not found" });
+    console.log("not found");
   }
 });
 
