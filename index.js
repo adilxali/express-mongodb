@@ -7,7 +7,7 @@ const history = require("connect-history-api-fallback");
 const app = express();
 const port = 3000;
 const url =
-  "mongodb://127.0.0.1:27017/?directConnection=true&serverSelectionTimeoutMS=2000&appName=mongosh+1.6.1";
+  "mongodb+srv://adil_ali:A@dil#7078@vue-db.dozkx80.mongodb.net/?retryWrites=true&w=majority";
 const corsOptions = {
   origin: "http://localhost:3000",
   optionsSuccessStatus: 200,
